@@ -9,7 +9,7 @@
 * Web服务器 Tomcat
 * Action: Servlet
 * View: Jsp
-无涉及Spring Spring-MVC Mybatis
+* 无涉及Spring Spring-MVC Mybatis
 
 ## 主要功能
 
@@ -20,13 +20,11 @@
 后期功能会继续添加 To Be Continued
 
 ## 准备工作
-
 1.jar包导入
 * Servlet
 * JDBC
 
 2.建包
-
 * Dao
 * util
 * Entity

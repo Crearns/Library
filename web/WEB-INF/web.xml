@@ -3,5 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
-         metadata-complete="false">
+         metadata-complete="true">
+
+    <servlet>
+        <servlet-name>LoginAction</servlet-name>
+        <servlet-class>Action.LoginAction</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginAction</servlet-name>
+        <url-pattern>/Action/LoginAction</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -10,28 +10,24 @@ import java.sql.SQLException;
 
 public class UserDao extends DBConnect{
 
-    Connection conn = null;
-    PreparedStatement pst = null;
-    ResultSet rs = null;
+
     public boolean login(User u){
         try {
-            conn = super.getConnection();
-            String sql = "select password form user where username=?";
+            Connection conn = super.getConnection();
+            String sql = "SELECT password,name FROM User WHERE user=?";
+            PreparedStatement pst = null;
+            ResultSet rs = null;
             pst = conn.prepareStatement(sql);
             pst.setString(1, u.getUsername());
-            if (rs.next())
-                if (u.getPassword().equals(rs.getString("password")))
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                if (u.getPassword().equals(rs.getString("password"))){
+                    u.setName(rs.getString("name"));
                     return true;
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            try {
-                conn.close();
-                pst.close();
-                rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
         return false;
 

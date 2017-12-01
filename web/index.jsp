@@ -13,7 +13,7 @@
   <body>
       <h1 align="center"> <b>欢迎使用图书馆管理系统11</b></h1>
       <hr>
-      <form action="/Action/LoginAction?action=login"  method="post">
+      <form action="/Library/Action/LoginAction?action=login"  method="post">
         <center>
         <h3>登录系统</h3>
         账号: <input type="text" name="username" value=""><br><br>

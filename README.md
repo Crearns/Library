@@ -6,9 +6,10 @@
 * 所用设计模式: MVC
 * 语言: Java
 * 数据库: MySQL
-* Web服务器 Tomcat
+* Web服务器: Tomcat
 * Action: Servlet
 * View: Jsp
+* 版本控制:Git
 * 无涉及Spring Spring-MVC Mybatis
 
 ## 主要功能

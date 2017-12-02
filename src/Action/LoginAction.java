@@ -34,8 +34,6 @@ public class LoginAction extends HttpServlet {
         user.setUsername(username);
         user.setPassword(password);
         HttpSession session = request.getSession();
-        System.out.println(username);
-        System.out.println(password);
         if(udao.login(user)){
             session.setAttribute("name", user.getName());
             request.getRequestDispatcher("/main.jsp").forward(request, response);

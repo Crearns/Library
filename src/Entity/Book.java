@@ -7,7 +7,7 @@ public class Book {
     private String publisher;
     private int price;
     private String category;
-
+    private  int store;
     public Book() {
     }
 
@@ -57,5 +57,13 @@ public class Book {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int getStore() {
+        return store;
+    }
+
+    public void setStore(int store) {
+        this.store = store;
     }
 }

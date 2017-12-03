@@ -83,28 +83,28 @@
     </tr>
     </thead>
     <tbody>
-    <%--<%--%><!-- JSP写法 -->
-        <%--BookDao bdao = new BookDao();--%>
-        <%--ArrayList<Book> booklist = bdao.getAllBook();--%>
-        <%--if(booklist!=null && booklist.size() > 0)--%>
-        <%--{--%>
-            <%--for(int i = 0; i < booklist.size(); i++)--%>
-            <%--{--%>
-                <%--Book b = booklist.get(i);--%>
-    <%--%>--%>
-    <%--<tr>--%>
-        <%--<td><%=b.getId()%></td>--%>
-        <%--<td><%=b.getName()%></td>--%>
-        <%--<td><%=b.getAuthor()%></td>--%>
-        <%--<td><%=b.getPublisher()%></td>--%>
-        <%--<td><%=b.getPrice()%></td>--%>
-        <%--<td><%=b.getCategory()%></td>--%>
-        <%--<td><%=b.getStore()%></td>--%>
-    <%--</tr>--%>
-    <%--<%--%>
-            <%--}--%>
-        <%--}--%>
-    <%--%>--%>
+    <%--<%
+        BookDao bdao = new BookDao();
+        ArrayList<Book> booklist = bdao.getAllBook();
+        if(booklist!=null && booklist.size() > 0)
+        {
+            for(int i = 0; i < booklist.size(); i++)
+            {
+                Book b = booklist.get(i);
+    %>
+    <tr>
+        <td><%=b.getId()%></td>
+        <td><%=b.getName()%></td>
+        <td><%=b.getAuthor()%></td>
+        <td><%=b.getPublisher()%></td>
+        <td><%=b.getPrice()%></td>
+        <td><%=b.getCategory()%></td>
+        <td><%=b.getStore()%></td>
+    </tr>
+    <%
+            }
+        }
+    %>--%>
     </tbody>
 </table>
 </body>

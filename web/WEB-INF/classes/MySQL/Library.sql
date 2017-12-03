@@ -30,6 +30,7 @@ CREATE TABLE `book` (
   `price` int(11) DEFAULT NULL COMMENT '书本价格',
   `category` varchar(10) DEFAULT NULL COMMENT '书本类目',
   `store` int(11) DEFAULT NULL,
+  `desc` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='书籍数据库';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,7 +41,7 @@ CREATE TABLE `book` (
 
 LOCK TABLES `book` WRITE;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES ('000001','Java核心技术','凯 S. 霍斯特曼','机械工业出版社',119,'编程类',20);
+INSERT INTO `book` VALUES ('000001','Java核心技术','凯 S. 霍斯特曼','机械工业出版社',119,'编程类',20,NULL),('000002','C++PrimaerPlus','Stephen Prata','中国邮电出版社',99,'编程类',15,NULL),('000003','算法竞赛入门经典','刘汝佳','清华大学出版社',50,'编程类',15,NULL);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,4 +90,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-01 22:15:04
+-- Dump completed on 2017-12-02 22:02:21

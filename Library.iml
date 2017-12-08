@@ -31,19 +31,19 @@
         <jarDirectory url="file://$MODULE_DIR$/web/WEB-INF/lib" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/apache-tomcat-9.0.1/lib/servlet-api.jar!/" />
+          <root url="jar://D:/JDBC/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://D:/JDBC/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar!/" />
+          <root url="jar://D:/apache/apache-tomcat-9.0.1/lib/servlet-api.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

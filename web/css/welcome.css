@@ -1,0 +1,49 @@
+.welcome{
+	position:absolute;
+	background:url("welcomePage.jpg") 1920px 950px;
+}
+
+.loginform{
+	position:absolute;
+	margin-top:250px;
+	margin-bottom:0px;
+	margin-right:0px;
+	margin-left:1240px;
+	height:235px;
+	width:410px;
+	background-color: white;
+	 padding: 25px;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.Chineseword{
+	position:absolute;
+	margin-top:125px;
+	margin-bottom:0px;
+	margin-right:0px;
+	margin-left:60px;
+	font-size:60px;
+	color:white;
+}
+
+.Englishword{
+	position:absolute;
+	margin-top:480px;
+	margin-bottom:0px;
+	margin-right:0px;
+	margin-left:60px;
+	font-size:60px;
+	color:white;
+}
+
+#usernameinput{
+	width:340px; 
+}
+#passwordinput{
+	width:340px; 
+}
+#labellogin{
+	text-align:center;
+	color:white;
+	font-size:20px;
+}

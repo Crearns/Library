@@ -10,6 +10,8 @@
 * Action: Servlet
 * View: Jsp
 * 版本控制:Git
+* CSS框架:BootStrap
+* JavaScript框架:jQuery
 * 无涉及Spring Spring-MVC Mybatis
 
 ## 主要功能

@@ -17,7 +17,7 @@
   </head>
   <body>
   <div class="welcome">
-      <img src="${pageContext.request.contextPath}/image/welcomePage.jpg" width="1920px" height="950px">
+      <img src="${pageContext.request.contextPath}/image/welcomePage.jpg" width="1920px" height="945px">
   </div>
   <div class="Chineseword">
       <span>
@@ -26,7 +26,7 @@
   </div>
   <div class="Englishword">
       <span>
-          Books are the stepping stones to <br>human progress. -Gorky
+          Books are the stepping stones <br>to human progress. -Gorky
       </span>
   </div>
   <div class="loginform">

@@ -34,7 +34,7 @@
                     图书管理
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/bookmanage/booklist.jsp"">查看图书总表</a>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/booklist.jsp"">查看图书总表</a>
                     <a class="dropdown-item" href="#">Link 2</a>
                     <a class="dropdown-item" href="#">Link 3</a>
                 </div>

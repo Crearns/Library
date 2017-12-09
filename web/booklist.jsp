@@ -14,11 +14,20 @@
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
 <html>
+<script type="text/javascript">
+    function a(){
+        $.ajax({
+            url:"/Library/Action/BookAction",//servlet文件的名称  
+            type:"GET",
+        });
+    }
+</script>
 <head>
     <title>图书管理</title>
 </head>
-<body>
+<body onload="a()">
 <h1 align="center">欢迎进入图书馆管理系统</h1>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -29,7 +38,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="../main.jsp">首页</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/main.jsp">首页</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href=" id="navbardrop" data-toggle="dropdown">
@@ -83,9 +92,8 @@
     </tr>
     </thead>
     <tbody>
-    <%--<%
-        BookDao bdao = new BookDao();
-        ArrayList<Book> booklist = bdao.getAllBook();
+    <%
+        ArrayList<Book> booklist = (ArrayList<Book>) request.getAttribute("list");
         if(booklist!=null && booklist.size() > 0)
         {
             for(int i = 0; i < booklist.size(); i++)
@@ -104,7 +112,7 @@
     <%
             }
         }
-    %>--%>
+    %>
     </tbody>
 </table>
 </body>

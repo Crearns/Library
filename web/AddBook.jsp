@@ -1,32 +1,22 @@
-<%@ page import="Entity.User" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Creams
-  Date: 2017/12/1
-  Time: 17:30
+  Date: 2018/1/11
+  Time: 22:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    function a(){
-        $.ajax({
-            url:"LoginAction?action=getadmininfo",//servlet文件的名称  
-            type:"GET",
-        });
-    }
-</script>
 <html>
 <head>
-    <title>登录成功</title>
+    <title>书本添加</title>
 </head>
 <body onload="a()">
 <h1 align="center">欢迎进入图书馆管理系统</h1>
-
+<body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a class="navbar-brand" href="#">Library</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -52,7 +42,7 @@
                     借书与还书
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="BookAction?action=getall">借书</a>
+                    <a class="dropdown-item" href="#">借书</a>
                     <a class="dropdown-item" href="#">还书</a>
                 </div>
             </li>
@@ -72,13 +62,11 @@
                 <a class="nav-link" href="#">图书预约</a>
             </li>
             <li class="nav-item">
-                
+
             </li>
         </ul>
-        
     </div>
 </nav>
-<br>
 
 </body>
 </html>

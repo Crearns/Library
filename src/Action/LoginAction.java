@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "LoginAction", value = "/LoginAction")
 public class LoginAction extends HttpServlet {
     UserDao udao = new UserDao();
 
@@ -19,6 +18,9 @@ public class LoginAction extends HttpServlet {
         String action = request.getParameter("action");
         if (action.equals("login")) {
             this.login(request, response);
+        }
+        else if(action.equals("getadmininfo")){
+            this.getadmininfo(request, response);
         }
 
     }
@@ -42,5 +44,10 @@ public class LoginAction extends HttpServlet {
 
         }
     }
-
+    private void getadmininfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        String name = (String)session.getAttribute("name");
+        User admincurrent = udao.queryadminbyname(name);
+        session.setAttribute("currentadmin", admincurrent);
+    }
 }

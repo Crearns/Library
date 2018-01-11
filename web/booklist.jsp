@@ -16,10 +16,15 @@
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    function a(){
+        $.ajax({
+            url:"BookAction?action=getall",//servlet文件的名称  
+            type:"GET",
+        });
+    }
 </script>
 <%
-    BookDao bookDao = new BookDao();
-    ArrayList<Book> booklist = bookDao.getAllBook();
+    ArrayList<Book> booklist = (ArrayList<Book>)session.getAttribute("allbooklist");
 %>
 <html>
 <head>
@@ -40,12 +45,21 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
-                图书管理
+                    图书管理
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="">查看图书总表</a>
-                    <a class="dropdown-item" href="#">Link 2</a>
-                    <a class="dropdown-item" href="#">Link 3</a>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/booklist.jsp">查看图书总表</a>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/AddBook.jsp">添加书本</a>
+                    <a class="dropdown-item" href="#">书本信息编辑</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                    借书与还书
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">借书</a>
+                    <a class="dropdown-item" href="#">还书</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -77,6 +91,7 @@
         <th>价格</th>
         <th>类目</th>
         <th>库存</th>
+        <th>所在位置(柜号)</th>
     </tr>
     </thead>
     <tbody>
@@ -95,6 +110,7 @@
         <td><%=b.getPrice()%></td>
         <td><%=b.getCategory()%></td>
         <td><%=b.getStore()%></td>
+        <td><%=b.getLocation()%></td>
     </tr>
     <%
             }

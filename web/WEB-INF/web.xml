@@ -9,9 +9,16 @@
         <servlet-name>LoginAction</servlet-name>
         <servlet-class>Action.LoginAction</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>BookAction</servlet-name>
+        <servlet-class>Action.BookAction</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginAction</servlet-name>
-        <url-pattern>/Action/LoginAction</url-pattern>
+        <url-pattern>/LoginAction</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BookAction</servlet-name>
+        <url-pattern>/BookAction</url-pattern>
     </servlet-mapping>
 </web-app>

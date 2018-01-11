@@ -8,6 +8,10 @@ public class Book {
     private int price;
     private String category;
     private  int store;
+    private String location;
+
+
+
     public Book() {
     }
 
@@ -65,5 +69,13 @@ public class Book {
 
     public void setStore(int store) {
         this.store = store;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

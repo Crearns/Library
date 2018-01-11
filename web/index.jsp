@@ -17,7 +17,7 @@
   </head>
   <body>
   <div class="welcome">
-      <img src="${pageContext.request.contextPath}/image/welcomePage.jpg" width="1920px" height="945px">
+      <img src="${pageContext.request.contextPath}/image/welcome.jpg" width="1920px" height="945px">
   </div>
   <div class="Chineseword">
       <span>
@@ -32,7 +32,7 @@
   <div class="loginform">
       <div class="col-md-4 column">
           <span id="labellogin">系统登录</span><br>
-          <form role="form" action="/Library/Action/LoginAction?action=login"  method="post">
+          <form role="form" action="LoginAction?action=login"  method="post">
               <div class="form-group">
                   <input type="text" class="form-control" id="usernameinput" name="username" placeholder="账号"/>
               </div>

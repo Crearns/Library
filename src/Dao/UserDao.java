@@ -32,4 +32,27 @@ public class UserDao extends DBConnect{
         return false;
 
     }
+    
+    public User queryadminbyname(String s){
+        try {
+            User u = new User();
+            Connection conn = super.getConnection();
+            String sql = "SELECT * FROM User WHERE name=" + "'" + s + "'";
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+           if(rs.next()){
+               u.setName(rs.getString("name"));
+               u.setSex(rs.getString("sex"));
+               u.setDepartment(rs.getString("department"));
+               u.setTel(rs.getString("tel"));
+               return  u;
+           }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 }

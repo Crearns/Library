@@ -30,11 +30,11 @@
                 <a class="nav-link" href="#">首页</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href=" id="navbardrop" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
                     图书管理
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/booklist.jsp"">查看图书总表</a>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/booklist.jsp">查看图书总表</a>
                     <a class="dropdown-item" href="#">Link 2</a>
                     <a class="dropdown-item" href="#">Link 3</a>
                 </div>
@@ -54,7 +54,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">图书预约</a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="#"><%= session.getAttribute("")%></a>
+            </li>
         </ul>
     </div>
 </nav>

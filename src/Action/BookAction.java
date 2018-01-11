@@ -14,19 +14,15 @@ import java.util.ArrayList;
 
 @WebServlet(name = "BookAction", value = "/BookAction", urlPatterns = "/BookAction")
 public class BookAction extends HttpServlet {
-    BookDao bookDao = new BookDao();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("------------------------------");
-        this.getBook(request, response);
+        BookDao bdao = new BookDao();
+        ArrayList<Book> bookArrayList = bdao.getAllBook();
+        System.out.println("yes");
+        request.setAttribute("booklist", bookArrayList);
     }
     
-    public void getBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        ArrayList<Book> booklist = null;
-        booklist = bookDao.getAllBook();
-        request.setAttribute("list", booklist);
-    }
 }

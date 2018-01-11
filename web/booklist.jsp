@@ -1,6 +1,7 @@
 <%@ page import="Dao.BookDao" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="Entity.Book" %><%--
+<%@ page import="Entity.Book" %>
+<%--
   Created by IntelliJ IDEA.
   User: Creams
   Date: 2017/12/2
@@ -14,16 +15,13 @@
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-
-<html>
 <script type="text/javascript">
-    function a(){
-        $.ajax({
-            url:"/Library/Action/BookAction",//servlet文件的名称  
-            type:"GET",
-        });
-    }
 </script>
+<%
+    BookDao bookDao = new BookDao();
+    ArrayList<Book> booklist = bookDao.getAllBook();
+%>
+<html>
 <head>
     <title>图书管理</title>
 </head>
@@ -41,7 +39,7 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/main.jsp">首页</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href=" id="navbardrop" data-toggle="dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
                 图书管理
                 </a>
                 <div class="dropdown-menu">
@@ -65,16 +63,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">图书预约</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Dropdown link
-                </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Link 1</a>
-                    <a class="dropdown-item" href="#">Link 2</a>
-                    <a class="dropdown-item" href="#">Link 3</a>
-                </div>
-            </li>
         </ul>
     </div>
 </nav>
@@ -93,7 +81,6 @@
     </thead>
     <tbody>
     <%
-        ArrayList<Book> booklist = (ArrayList<Book>) request.getAttribute("list");
         if(booklist!=null && booklist.size() > 0)
         {
             for(int i = 0; i < booklist.size(); i++)

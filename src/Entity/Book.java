@@ -9,8 +9,7 @@ public class Book {
     private String category;
     private  int store;
     private String location;
-
-
+    private  String desc;
 
     public Book() {
     }
@@ -77,5 +76,13 @@ public class Book {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

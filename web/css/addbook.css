@@ -1,0 +1,28 @@
+.bookinfo{
+	position:absolute;
+	margin-top:100px;
+	margin-bottom:0px;
+	margin-right:0px;
+	margin-left:825px;
+}
+
+#title{
+	text-align:center;
+	font-size:30px;
+}
+
+#bookid{
+	margin-right:0px;
+}
+
+#bookname{
+	margin-right:0px;
+}
+
+input{
+	margin-top:20px;
+}
+
+button{
+	margin-left:40px;
+}

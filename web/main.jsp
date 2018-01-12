@@ -12,19 +12,11 @@
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    function a(){
-        $.ajax({
-            url:"LoginAction?action=getadmininfo",//servlet文件的名称  
-            type:"GET",
-        });
-    }
-</script>
 <html>
 <head>
     <title>登录成功</title>
 </head>
-<body onload="a()">
+<body>
 <h1 align="center">欢迎进入图书馆管理系统</h1>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
@@ -52,7 +44,7 @@
                     借书与还书
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="BookAction?action=getall">借书</a>
+                    <a class="dropdown-item" href="#">借书</a>
                     <a class="dropdown-item" href="#">还书</a>
                 </div>
             </li>

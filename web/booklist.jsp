@@ -81,6 +81,15 @@
     </div>
 </nav>
 <br>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <form class="form-search">
+                书本搜索：<input class="input-medium search-query" type="text" /><button class="btn" type="submit">查找</button>
+            </form>
+        </div>
+    </div>
+</div>
 <table class="table">
     <thead>
     <tr>

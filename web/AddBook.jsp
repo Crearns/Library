@@ -7,15 +7,20 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addbook.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<%
+    request.setCharacterEncoding("utf-8");
+%>
 <html>
 <head>
     <title>书本添加</title>
 </head>
 <body onload="a()">
 <h1 align="center">欢迎进入图书馆管理系统</h1>
+</body>
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a class="navbar-brand" href="#">Library</a>
@@ -61,12 +66,45 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">图书预约</a>
             </li>
-            <li class="nav-item">
-
-            </li>
         </ul>
     </div>
 </nav>
 
+<div class="bookinfo">
+    <form action="BookAction?action=addtemp" method="post">
+        <span id="title">请输入书本信息</span>
+        <br>
+        <label>书编号</label>
+        <input type="text" name="bookid" />
+        <br>
+        <label>书名</label>
+        <input type="text" name="bookname" />
+        <br>
+        <label>作者</label>
+        <input type="text" name="bookauthor" />
+        <br>
+        <label>出版社</label>
+        <input type="text" name="bookpublisher" />
+        <br>
+        <label>价格</label>
+        <input type="text" name="bookprice" />
+        <br>
+        <label>类目</label>
+        <input type="text" name="bookcategory" />
+        <br>
+        <label>库存</label>
+        <input type="text" name="bookstore" />
+        <br>
+        <label>所在位置</label>
+        <input type="text" name="booklocation" />
+        <br>
+        <label>书本描述</label>
+        <textarea name="bookdesc"></textarea>
+        <br>
+        <button type="submit">完成</button>
+        <button type="submit">下一本书</button>     
+    </form>
+</div>
 </body>
 </html>
+

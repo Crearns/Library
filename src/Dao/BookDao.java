@@ -23,7 +23,7 @@ public class BookDao extends DBConnect {
             while (rs.next()) {
                 Book book = new Book();
                 book.setId(rs.getString("id"));
-                book.setName(rs.getString("name"));
+                book.setName(rs.getString("bookname"));
                 book.setAuthor(rs.getString("author"));
                 book.setPublisher(rs.getString("publisher"));
                 book.setPrice(rs.getInt("price"));
@@ -60,5 +60,46 @@ public class BookDao extends DBConnect {
             e.printStackTrace();
         }
     }
-
+    public ArrayList<Book> getadd(){
+        try {
+            Connection conn = super.getConnection();
+            String sql = "SELECT * FROM tempadd";
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) { 
+                Book addbook = new Book();
+                addbook.setPrice(rs.getInt("price"));
+                addbook.setCategory(rs.getString("category"));
+                addbook.setStore(rs.getInt("store"));
+                addbook.setLocation(rs.getString("location"));
+                addbook.setId(rs.getString("id"));
+                addbook.setName(rs.getString("bookname"));
+                addbook.setAuthor(rs.getString("author"));
+                addbook.setPublisher(rs.getString("publisher"));
+                booklist.add(addbook);
+            }
+            return booklist;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return booklist;
+    }
+    
+    public void confirm(){
+        try {
+            int i = 0;
+            Connection conn = super.getConnection();
+            PreparedStatement pst = null;
+            String sql = "INSERT INTO Book SELECT * FROM tempadd;";
+            pst = conn.prepareStatement(sql);
+            i = pst.executeUpdate();
+            sql = "truncate table tempadd;";
+            pst = conn.prepareStatement(sql);
+            i = pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

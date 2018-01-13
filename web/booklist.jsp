@@ -18,13 +18,13 @@
 <script type="text/javascript">
     function a(){
         $.ajax({
-            url:"BookAction?action=getall",//servlet文件的名称  
+            url:"BookAction?action=getall",
             type:"GET",
         });
     }
 </script>
 <%
-    ArrayList<Book> booklist = (ArrayList<Book>)session.getAttribute("allbooklist");
+    ArrayList<Book> booklist = (ArrayList<Book>)session.getAttribute("allbooklist"); 
 %>
 <html>
 <head>

@@ -40,20 +40,15 @@ public class BookAction extends HttpServlet {
         ArrayList<Book> bookArrayList = bdao.getAllBook();
         HttpSession session = request.getSession();
         session.setAttribute("allbooklist", bookArrayList);
-        request.getRequestDispatcher("/booklist.jsp").forward(request,response);
+        request.getRequestDispatcher("/booklist.jsp").forward(request, response);
     }
 
     private void addtemp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String next = request.getParameter("over");
-        System.out.println(next);
         BookDao bdao = new BookDao();
         Book book = new Book();
-        System.out.println(request.getParameter("over"));
         if(!request.getParameter("bookid").equals(""))
             book.setId(request.getParameter("bookid"));
-        else
-            request.getRequestDispatcher("/addconfirm.jsp").forward(request,response);
-        System.out.println(request.getParameter("bookname"));
         if(!request.getParameter("bookname").equals(""))
             book.setName(request.getParameter("bookname"));
         if(!request.getParameter("bookauthor").equals(""))
@@ -70,9 +65,10 @@ public class BookAction extends HttpServlet {
             book.setLocation(request.getParameter("booklocation"));
         if(!request.getParameter("bookdesc").equals("")) 
             book.setDesc(request.getParameter("bookdesc"));
-        bdao.addtemp(book);
-        if(next.equals("0"))
-             request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
+        if(!request.getParameter("bookid").equals(""))
+            bdao.addtemp(book);
+        if(next.equals("0")) 
+            request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
         else
             request.getRequestDispatcher("/addconfirm.jsp").forward(request,response);
     }

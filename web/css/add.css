@@ -1,0 +1,34 @@
+.bookinfo{
+	position:absolute;
+	width:500px;
+	margin-top:50px;
+	margin-bottom:0px;
+	margin-right:0px;
+	margin-left:705px;
+}
+
+.title{
+	text-align:center;
+	font-size:30px;
+	font-family:"宋体";
+}
+
+input{
+	width:350px;
+	margin-right:5px;
+}
+
+.button{
+	text-align:center;
+}
+
+textarea{
+	width:350px;
+	height:300px;
+	resize:none;
+}
+
+.infotitle{
+	font-family:"仿宋";
+	font-size:25px;
+}

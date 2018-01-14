@@ -24,7 +24,7 @@
     }
 </script>
 <%
-    ArrayList<Book> booklist = (ArrayList<Book>)session.getAttribute("allbooklist"); 
+    ArrayList<Book> booklist = (ArrayList<Book>)session.getAttribute("allbooklist");
 %>
 <html>
 <head>
@@ -48,9 +48,8 @@
                     图书管理
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/booklist.jsp">查看图书总表</a>
+                    <a class="dropdown-item" href="BookAction?action=getall">查看图书总表</a>
                     <a class="dropdown-item" href="${pageContext.request.contextPath}/AddBook.jsp">添加书本</a>
-                    <a class="dropdown-item" href="#">书本信息编辑</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -101,6 +100,7 @@
         <th>类目</th>
         <th>库存</th>
         <th>所在位置(柜号)</th>
+        <th>操作</th>
     </tr>
     </thead>
     <tbody>
@@ -113,13 +113,14 @@
     %>
     <tr>
         <td><%=b.getId()%></td>
-        <td><a href="${pageContext.request.contextPath}/detail.jsp?id=<%=b.getId()%>"><%=b.getName()%></a> </td>
+        <td><a href="BookAction?action=querybookbyid&id=<%=b.getId()%>&next=check"><%=b.getName()%></a> </td>
         <td><%=b.getAuthor()%></td>
         <td><%=b.getPublisher()%></td>
         <td><%=b.getPrice()%></td>
         <td><%=b.getCategory()%></td>
         <td><%=b.getStore()%></td>
         <td><%=b.getLocation()%></td>
+        <td><a href="BookAction?action=querybookbyid&id=<%=b.getId()%>&next=edit">编辑或删除</a></td>
     </tr>
     <%
             }

@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookDao extends DBConnect {
-    ArrayList<Book> booklist = new ArrayList<>();
     public ArrayList<Book> getAllBook(){
+        ArrayList<Book> booklist = new ArrayList<>();
         try {
             Connection conn = super.getConnection();
             String sql = "SELECT * FROM Book";
@@ -38,7 +38,7 @@ public class BookDao extends DBConnect {
         }
         return booklist;
     }
-    
+
     public void addtemp(Book book){
         try {
             int i = 0;
@@ -61,6 +61,7 @@ public class BookDao extends DBConnect {
         }
     }
     public ArrayList<Book> getadd(){
+        ArrayList<Book> booklist = new ArrayList<>();
         try {
             Connection conn = super.getConnection();
             String sql = "SELECT * FROM tempadd";
@@ -68,7 +69,7 @@ public class BookDao extends DBConnect {
             ResultSet rs = null;
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
-            while (rs.next()) { 
+            while (rs.next()) {
                 Book addbook = new Book();
                 addbook.setPrice(rs.getInt("price"));
                 addbook.setCategory(rs.getString("category"));
@@ -86,7 +87,7 @@ public class BookDao extends DBConnect {
         }
         return booklist;
     }
-    
+
     public void confirm(){
         try {
             int i = 0;
@@ -97,6 +98,68 @@ public class BookDao extends DBConnect {
             i = pst.executeUpdate();
             sql = "truncate table tempadd;";
             pst = conn.prepareStatement(sql);
+            i = pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public  Book QueryBookById(String s){
+        try {
+            Connection conn = super.getConnection();
+            String sql = "SELECT * FROM Book WHERE id=" + "'" + s + "'";
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            Book book = new Book();
+            while (rs.next()) {
+                book.setId(rs.getString("id"));
+                book.setName(rs.getString("bookname"));
+                book.setAuthor(rs.getString("author"));
+                book.setPublisher(rs.getString("publisher"));
+                book.setPrice(rs.getInt("price"));
+                book.setCategory(rs.getString("category"));
+                book.setStore(rs.getInt("store"));
+                book.setDesc(rs.getString("bookdesc"));
+                book.setLocation(rs.getString("location"));
+            }
+            return book;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+    public void DeleteById(String s){
+        try {
+            int i = 0;
+            Connection conn = super.getConnection();
+            PreparedStatement pst = null;
+            String sql = "DELETE FROM Book WHERE  id=" + "'" + s + "'";
+            pst = conn.prepareStatement(sql);
+            i = pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void EditDone(Book book){
+        try {
+            int i = 0;
+            Connection conn = super.getConnection();
+            PreparedStatement pst = null;
+            String sql = "UPDATE Book SET bookname=?,author=?,publisher=?,price=?,category=?,store=?,bookdesc=?,location=? WHERE id=?";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, book.getName());
+            pst.setString(2, book.getAuthor());
+            pst.setString(3, book.getPublisher());
+            pst.setInt(4, book.getPrice());
+            pst.setString(5, book.getCategory());
+            pst.setInt(6, book.getStore());
+            pst.setString(7, book.getDesc());
+            pst.setString(8, book.getLocation());
+            pst.setString(9, book.getId());
             i = pst.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

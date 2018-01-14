@@ -36,7 +36,6 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="BookAction?action=getall">查看图书总表</a>
                     <a class="dropdown-item" href="${pageContext.request.contextPath}/AddBook.jsp">添加书本</a>
-                    <a class="dropdown-item" href="#">书本信息编辑</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -63,11 +62,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">图书预约</a>
             </li>
-            <li class="nav-item">
-                
-            </li>
         </ul>
-        
+
     </div>
 </nav>
 <br>

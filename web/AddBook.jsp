@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addbook.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/add.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -37,9 +37,8 @@
                     图书管理
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="${pageContext.request.contextPath}/booklist.jsp">查看图书总表</a>
+                    <a class="dropdown-item" href="BookAction?action=getall">查看图书总表</a>
                     <a class="dropdown-item" href="${pageContext.request.contextPath}/AddBook.jsp">添加书本</a>
-                    <a class="dropdown-item" href="#">书本信息编辑</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -69,42 +68,44 @@
         </ul>
     </div>
 </nav>
-
-<div class="bookinfo">
-    <form action="BookAction?action=addtemp" method="post">
-        <span id="title">请输入书本信息</span>
-        <br>
-        <label>书编号</label>
-        <input type="text" name="bookid" />
-        <br>
-        <label>书名</label>
-        <input type="text" name="bookname" />
-        <br>
-        <label>作者</label>
-        <input type="text" name="bookauthor" />
-        <br>
-        <label>出版社</label>
-        <input type="text" name="bookpublisher" />
-        <br>
-        <label>价格</label>
-        <input type="text" name="bookprice" />
-        <br>
-        <label>类目</label>
-        <input type="text" name="bookcategory" />
-        <br>
-        <label>库存</label>
-        <input type="text" name="bookstore" />
-        <br>
-        <label>所在位置</label>
-        <input type="text" name="booklocation" />
-        <br>
-        <label>书本描述</label>
-        <textarea name="bookdesc"></textarea>
-        <br>
-        <button type="submit" name="over" value="1">完成</button>
-        <button type="submit" name="over" value="0">继续添加</button>     
-    </form>
-</div>
+<form action="BookAction?action=addtemp" method="post">
+    <div class="bookinfo">
+        <div class="title">
+            <span>请输入书本信息</span>
+        </div>
+        <div>
+            <span class="infotitle">书本编号：</span><input name="bookid" >
+        </div>
+        <div>
+            <span class="infotitle">书本名称：</span><input name="bookname">
+        </div>
+        <div>
+            <span class="infotitle">书本作者：</span><input name="bookauthor">
+        </div>
+        <div>
+            <span class="infotitle">出版单位：</span><input name="bookpublisher">
+        </div>
+        <div>
+            <span class="infotitle">书本价格：</span><input name="bookprice">
+        </div>
+        <div>
+            <span class="infotitle">书本类目：</span><input name="bookcategory">
+        </div>
+        <div>
+            <span class="infotitle">书本库存：</span><input name="bookstore" >
+        </div>
+        <div>
+            <span class="infotitle">所在位置：</span><input name="booklocation" >
+        </div>
+        <div>
+            <span class="infotitle">书本详情：</span><textarea name="bookdesc"></textarea>
+        </div>
+        <div class="button">
+            <button type="submit" class="btn btn-default" name="over" value="1">完成添加</button>
+            <button type="submit" class="btn btn-default" name="over" value="0">继续添加</button>
+        </div>
+    </div>
+</form>
 </body>
 </html>
-
+    

@@ -22,18 +22,27 @@ public class BookAction extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
-       if(action.equals("getall")){
-           this.getAll(request, response);
-       }
-       else if(action.equals("addtemp")) {
-           this.addtemp(request, response);
-       }
-       else if(action.equals("gettemp")) {
-           this.gettemp(request, response);
-       }
-       else if(action.equals("confirm")) {
-           this.confirm(request, response);
-       }
+        if(action.equals("getall")){
+            this.getAll(request, response);
+        }
+        else if(action.equals("addtemp")) {
+            this.addtemp(request, response);
+        }
+        else if(action.equals("gettemp")) {
+            this.gettemp(request, response);
+        }
+        else if(action.equals("confirm")) {
+            this.confirm(request, response);
+        }
+        else if(action.equals("querybookbyid")){
+            this.QueryBookById(request, response);
+        }
+        else if(action.equals("DeleteById")){
+            this.DeleteById(request, response);
+        }
+        else if(action.equals("EditDone")){
+            this.EditDone(request, response);
+        }
     }
     private void getAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         BookDao bdao = new BookDao();
@@ -52,22 +61,22 @@ public class BookAction extends HttpServlet {
         if(!request.getParameter("bookname").equals(""))
             book.setName(request.getParameter("bookname"));
         if(!request.getParameter("bookauthor").equals(""))
-             book.setAuthor(request.getParameter("bookauthor"));
+            book.setAuthor(request.getParameter("bookauthor"));
         if(!request.getParameter("bookpublisher").equals(""))
-             book.setPublisher(request.getParameter("bookpublisher"));
-        if(!request.getParameter("bookcategory").equals("")) 
+            book.setPublisher(request.getParameter("bookpublisher"));
+        if(!request.getParameter("bookcategory").equals(""))
             book.setCategory(request.getParameter("bookcategory"));
-        if(!request.getParameter("bookprice").trim().equals("")) 
+        if(!request.getParameter("bookprice").trim().equals(""))
             book.setPrice(Integer.parseInt(request.getParameter("bookprice")));
-        if(!request.getParameter("bookstore").trim().equals("")) 
+        if(!request.getParameter("bookstore").trim().equals(""))
             book.setStore(Integer.parseInt(request.getParameter("bookstore")));
-        if(!request.getParameter("booklocation").equals("")) 
+        if(!request.getParameter("booklocation").equals(""))
             book.setLocation(request.getParameter("booklocation"));
-        if(!request.getParameter("bookdesc").equals("")) 
+        if(!request.getParameter("bookdesc").equals(""))
             book.setDesc(request.getParameter("bookdesc"));
         if(!request.getParameter("bookid").equals(""))
             bdao.addtemp(book);
-        if(next.equals("0")) 
+        if(next.equals("0"))
             request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
         else
             this.gettemp(request,response);
@@ -85,5 +94,52 @@ public class BookAction extends HttpServlet {
         BookDao bdao = new BookDao();
         bdao.confirm();
         this.getAll(request, response);
+    }
+
+    private void QueryBookById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        BookDao bdao = new BookDao();
+        String id = request.getParameter("id");
+        String next = request.getParameter("next");
+        Book book = bdao.QueryBookById(id);
+        HttpSession session = request.getSession();
+        session.setAttribute("resultbook", book);
+        if(next.equals("check"))
+            request.getRequestDispatcher("/detail.jsp").forward(request, response);
+        else if(next.equals("edit"))
+            request.getRequestDispatcher("/edit.jsp").forward(request, response);
+    }
+
+    private void DeleteById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        BookDao bdao = new BookDao();
+        String id = request.getParameter("id");
+        bdao.DeleteById(id);
+        this.getAll(request, response);
+    }
+
+    private void EditDone(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        BookDao bdao = new BookDao();
+        Book book = new Book();
+        if(!request.getParameter("id").equals(""))
+            book.setId(request.getParameter("id"));
+        if(!request.getParameter("name").equals(""))
+            book.setName(request.getParameter("name"));
+        if(!request.getParameter("author").equals(""))
+            book.setAuthor(request.getParameter("author"));
+        if(!request.getParameter("publisher").equals(""))
+            book.setPublisher(request.getParameter("publisher"));
+        if(!request.getParameter("category").equals(""))
+            book.setCategory(request.getParameter("category"));
+        if(!request.getParameter("price").trim().equals(""))
+            book.setPrice(Integer.parseInt(request.getParameter("price")));
+        if(!request.getParameter("store").trim().equals(""))
+            book.setStore(Integer.parseInt(request.getParameter("store")));
+        if(!request.getParameter("location").equals(""))
+            book.setLocation(request.getParameter("location"));
+        if(!request.getParameter("desc").equals(""))
+            book.setDesc(request.getParameter("desc"));
+        if(!request.getParameter("id").equals(""))
+            bdao.addtemp(book);
+        bdao.EditDone(book);
+        request.getRequestDispatcher("BookAction?action=querybookbyid&id=<%=b.getId()%>&next=check").forward(request, response);
     }
 }

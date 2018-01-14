@@ -70,7 +70,7 @@ public class BookAction extends HttpServlet {
         if(next.equals("0")) 
             request.getRequestDispatcher("/AddBook.jsp").forward(request, response);
         else
-            request.getRequestDispatcher("/addconfirm.jsp").forward(request,response);
+            this.gettemp(request,response);
     }
 
     private void gettemp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -84,6 +84,6 @@ public class BookAction extends HttpServlet {
     private void confirm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         BookDao bdao = new BookDao();
         bdao.confirm();
-        request.getRequestDispatcher("/booklist.jsp").forward(request, response);
+        this.getAll(request, response);
     }
 }

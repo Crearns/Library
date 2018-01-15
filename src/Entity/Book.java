@@ -9,7 +9,7 @@ public class Book {
     private String category;
     private  int store;
     private String location;
-    private  String desc;
+    private String desc;
 
     public Book() {
     }

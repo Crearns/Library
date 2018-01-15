@@ -1,0 +1,33 @@
+.borrowinfo{
+	position:absolute;
+	width:500px;
+	margin-top:50px;
+	margin-bottom:0px;
+	margin-right:0px;
+	margin-left:705px;
+}
+
+.title{
+	text-align:center;
+	font-size:30px;
+	font-family:"宋体";
+}
+
+input{
+	width:350px;
+	margin-right:5px;
+}
+
+.infotitle{
+	font-family:"仿宋";
+	font-size:25px;
+}
+
+.button{
+	margin-top:50px;
+	text-align:center;
+}
+
+button{
+	width:110px;
+}

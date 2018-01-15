@@ -47,7 +47,7 @@
                     借书与还书
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">借书</a>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/borrow.jsp">借书</a>
                     <a class="dropdown-item" href="#">还书</a>
                 </div>
             </li>

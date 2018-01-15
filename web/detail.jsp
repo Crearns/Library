@@ -44,7 +44,7 @@
                     借书与还书
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">借书</a>
+                    <a class="dropdown-item" href="${pageContext.request.contextPath}/borrow.jsp">借书</a>
                     <a class="dropdown-item" href="#">还书</a>
                 </div>
             </li>
@@ -83,7 +83,7 @@
         <span class="infotitle">书本作者：</span><span class="info"><%=book.getAuthor()%></span>
     </div>
     <div>
-        <span class="infotitle">出版社：</span><span class="info"><%=book.getPublisher()%></span>
+        <span class="infotitle">出版单位：</span><span class="info"><%=book.getPublisher()%></span>
     </div>
     <div>
         <span class="infotitle">书本价格：</span><span class="info"><%=book.getPrice()%>元</span>

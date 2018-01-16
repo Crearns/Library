@@ -13,6 +13,10 @@
         <servlet-name>BookAction</servlet-name>
         <servlet-class>Action.BookAction</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>IOAction</servlet-name>
+        <servlet-class>Action.IOAction</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginAction</servlet-name>
         <url-pattern>/LoginAction</url-pattern>
@@ -20,5 +24,9 @@
     <servlet-mapping>
         <servlet-name>BookAction</servlet-name>
         <url-pattern>/BookAction</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IOAction</servlet-name>
+        <url-pattern>/IOAction</url-pattern>
     </servlet-mapping>
 </web-app>

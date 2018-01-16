@@ -56,6 +56,7 @@ public class BookDao extends DBConnect {
             pst.setString(8, book.getDesc());
             pst.setString(9, book.getLocation());
             i = pst.executeUpdate();
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -81,6 +82,7 @@ public class BookDao extends DBConnect {
                 addbook.setPublisher(rs.getString("publisher"));
                 booklist.add(addbook);
             }
+            conn.close();
             return booklist;
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,6 +101,7 @@ public class BookDao extends DBConnect {
             sql = "truncate table tempadd;";
             pst = conn.prepareStatement(sql);
             i = pst.executeUpdate();
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -124,6 +127,7 @@ public class BookDao extends DBConnect {
                 book.setDesc(rs.getString("bookdesc"));
                 book.setLocation(rs.getString("location"));
             }
+            conn.close();
             return book;
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,6 +143,7 @@ public class BookDao extends DBConnect {
             String sql = "DELETE FROM Book WHERE  id=" + "'" + s + "'";
             pst = conn.prepareStatement(sql);
             i = pst.executeUpdate();
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -161,6 +166,7 @@ public class BookDao extends DBConnect {
             pst.setString(8, book.getLocation());
             pst.setString(9, book.getId());
             i = pst.executeUpdate();
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

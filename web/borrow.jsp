@@ -15,7 +15,7 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <html>
 <head>
-    <title>借书</title>
+    <title>书本借出记录登记表</title>
 </head>
 <body>
 <h1 align="center">欢迎进入图书馆管理系统</h1>
@@ -71,30 +71,30 @@
     <div class="title">
         书本借出记录登记表
     </div>
-    <form>
+    <form action="IOAction?action=borrow" method="post">
         <div>
-            <span class="infotitle">读者学号：</span><input type="text" name="readid" id="readid">
+            <span class="infotitle">读者学号：</span><input type="text" name="readerid">
         </div>
         <div>
-            <span class="infotitle">读者姓名：</span><input type="text" name="readid" disabled>
+            <span class="infotitle">读者姓名：</span><input type="text" name="readername" disabled>
         </div>
         <div>
             <span class="infotitle">书本编号：</span><input type="text" name="bookid">
         </div>
         <div>
-            <span class="infotitle">书本名称：</span><input name="name" disabled>
+            <span class="infotitle">书本名称：</span><input name="bookname" disabled>
         </div>
         <div>
-            <span class="infotitle">书本作者：</span><input name="author" disabled>
+            <span class="infotitle">书本作者：</span><input name="bookauthor" disabled>
         </div>
         <div>
-            <span class="infotitle">出版单位：</span><input name="publisher" disabled>
+            <span class="infotitle">出版单位：</span><input name="bookpublisher" disabled>
         </div>
         <div>
             <span class="infotitle">借阅时间：</span>
-            <select >
-                <option >7天</option>
-                <option >14天</option>
+            <select name="borrowday">
+                <option value="7">7天</option>
+                <option value="14">14天</option>
             </select>
         </div>
         <div class="button">

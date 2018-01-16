@@ -73,7 +73,7 @@
     </div>
     <form>
         <div>
-            <span class="infotitle">读者学号：</span><input type="text" name="readid">
+            <span class="infotitle">读者学号：</span><input type="text" name="readid" id="readid">
         </div>
         <div>
             <span class="infotitle">读者姓名：</span><input type="text" name="readid" disabled>
@@ -102,7 +102,6 @@
             <button type="reset" class="btn btn-default">重填</button>
         </div>
     </form>
-    
 </div>
 </body>
 </html>

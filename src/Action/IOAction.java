@@ -1,14 +1,17 @@
 package Action;
 
 import Dao.IODao;
+import Entity.Log;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class IOAction extends HttpServlet {
@@ -16,6 +19,9 @@ public class IOAction extends HttpServlet {
         String action = request.getParameter("action");
         if(action.equals("borrow")){
             this.borrow(request, response);
+        }
+        else if(action.equals("getlog")){
+            this.getlog(request, response);
         }
     }
 
@@ -32,10 +38,15 @@ public class IOAction extends HttpServlet {
         String bookid = request.getParameter("bookid");
         int borrowday = Integer.parseInt(request.getParameter("borrowday"));
         ioDao.borrow(bookid, readerid, time, borrowday);
+        this.getlog(request,response);
     }
 
     protected void getlog(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        
+        IODao ioDao = new IODao();
+        ArrayList<Log> loglist = ioDao.getLogList();
+        HttpSession session = request.getSession();
+        session.setAttribute("loglist", loglist);
+        request.getRequestDispatcher("/IOLog.jsp").forward(request, response);
     }
     
 }

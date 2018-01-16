@@ -18,7 +18,7 @@
 <head>
     <title>书本添加</title>
 </head>
-<body onload="a()">
+<body>
 <h1 align="center">欢迎进入图书馆管理系统</h1>
 </body>
 <body>
@@ -51,7 +51,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">图书进出记录</a>
+                <a class="nav-link" href="IOAction?action=getlog">图书进出记录</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">用户管理</a>
@@ -66,6 +66,7 @@
                 <a class="nav-link" href="#">图书预约</a>
             </li>
         </ul>
+
     </div>
 </nav>
 

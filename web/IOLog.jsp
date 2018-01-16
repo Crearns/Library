@@ -1,25 +1,22 @@
-<%@ page import="Entity.Book" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Entity.Log" %><%--
   Created by IntelliJ IDEA.
   User: Creams
-  Date: 2018/1/14
-  Time: 11:51
+  Date: 2018/1/16
+  Time: 23:00
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/detail.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <html>
 <head>
-    <title>图书详情</title>
+    <title>图书借进归还日志</title>
 </head>
 <body>
 <h1 align="center">欢迎进入图书馆管理系统</h1>
-
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a class="navbar-brand" href="#">Library</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -67,44 +64,39 @@
 
     </div>
 </nav>
-<%
-    Book book = (Book)session.getAttribute("resultbook");
-%>
-<div class="detail">
-    <div class="title">
-        <span>图书详情信息</span>
-    </div>
-    <div id="id">
-        <span class="infotitle">书本编号：</span><span class="info"><%=book.getId()%></span>
-    </div>
-    <div>
-        <span class="infotitle">书本名称：</span><span class="info"><%=book.getName()%></span>
-    </div>
-    <div>
-        <span class="infotitle">书本作者：</span><span class="info"><%=book.getAuthor()%></span>
-    </div>
-    <div>
-        <span class="infotitle">出版单位：</span><span class="info"><%=book.getPublisher()%></span>
-    </div>
-    <div>
-        <span class="infotitle">书本价格：</span><span class="info"><%=book.getPrice()%>元</span>
-    </div>
-    <div>
-        <span class="infotitle">书本类目：</span><span class="info"><%=book.getCategory()%></span>
-    </div>
-    <div>
-        <span class="infotitle">书本库存：</span><span class="info"><%=book.getStore()%>本</span>
-    </div>
-    <div>
-        <span class="infotitle">书本所在位置：</span><span class="info"><%=book.getLocation()%>号柜</span>
-    </div>
-    <div>
-        <span class="infotitle">书本详情：</span><span class="info"><%=book.getDesc()%></span>
-    </div>
-    <div class="button">
-        <a href="BookAction?action=querybookbyid&id=<%=book.getId()%>&next=edit"><button type="button" class="btn btn-default">编辑信息</button></a>
-        <a href="BookAction?action=getall"><button type="button" class="btn btn-info">返回总表</button></a>
-    </div>
-</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>书本编号(书名)</th>
+        <th>读者学号</th>
+        <th>借出/归还</th>
+        <th>借出/归还 时间</th>
+        <th>借阅时间</th>
+        <th>是否归还</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+        ArrayList<Log> loglist = (ArrayList<Log>)session.getAttribute("loglist");
+        if(loglist!=null && loglist.size() > 0)
+        {
+            for(int i = 0; i < loglist.size(); i++)
+            {
+                Log log = loglist.get(i);
+    %>
+    <tr>
+        <td><%=log.getBookid()%></td>
+        <td><%=log.getReaderid()%></td>
+        <td><%=log.getService()%></td>
+        <td><%=log.getBorrowtime()%></td>
+        <td><%=log.getBorrowday()%></td>
+        <td><%=log.getComplete()%></td>
+    </tr>
+    <%
+            }
+        }
+    %>
+    </tbody>
+</table>
 </body>
 </html>

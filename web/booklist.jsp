@@ -16,12 +16,6 @@
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    function a(){
-        $.ajax({
-            url:"BookAction?action=getall",
-            type:"GET",
-        });
-    }
 </script>
 <%
     ArrayList<Book> booklist = (ArrayList<Book>)session.getAttribute("allbooklist");

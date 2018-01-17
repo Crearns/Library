@@ -18,12 +18,12 @@
         <servlet-class>Action.IOAction</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ReadAction</servlet-name>
-        <servlet-class>Action.ReadAction</servlet-class>
+        <servlet-name>ReaderAction</servlet-name>
+        <servlet-class>Action.ReaderAction</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ReadAction</servlet-name>
-        <url-pattern>/ReadAction</url-pattern>
+        <servlet-name>ReaderAction</servlet-name>
+        <url-pattern>/ReaderAction</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginAction</servlet-name>

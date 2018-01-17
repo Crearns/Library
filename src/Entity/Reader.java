@@ -5,20 +5,13 @@ public class Reader {
     private String password;
     private String name;
     private String sex;
-    private String status;
+    private int status;
     private String mail;
     private int grade;
     private int classnum;
     private int borrow;
 
-    public Reader(String username, String password, String name, String sex, String status, String mail, int borrow) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.sex = sex;
-        this.status = status;
-        this.mail = mail;
-        this.borrow = borrow;
+    public Reader() {
     }
 
     public String getUsername() {
@@ -53,11 +46,11 @@ public class Reader {
         this.sex = sex;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -75,5 +68,21 @@ public class Reader {
 
     public void setBorrow(int borrow) {
         this.borrow = borrow;
+    }
+    
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public int getClassnum() {
+        return classnum;
+    }
+
+    public void setClassnum(int classnum) {
+        this.classnum = classnum;
     }
 }

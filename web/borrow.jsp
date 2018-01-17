@@ -11,12 +11,16 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/borrow.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/Query.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <html>
 <head>
     <title>书本借出记录登记表</title>
 </head>
+<%
+    request.setCharacterEncoding("utf-8");
+%>
 <body>
 <h1 align="center">欢迎进入图书馆管理系统</h1>
 
@@ -74,7 +78,7 @@
     </div>
     <form action="IOAction?action=borrow" method="post">
         <div>
-            <span class="infotitle">读者学号：</span><input type="text" name="readerid" onkeyup="a()">
+            <span class="infotitle">读者学号：</span><input type="text" onkeyup="check()" name="readerid" id="readerid">
         </div>
         <div>
             <span class="infotitle">读者姓名：</span><input type="text" name="readername" id="readername" disabled>
@@ -113,45 +117,5 @@
         </div>
     </form>
 </div>
-<script>
-    var xmlhttp;
-    function check(){
-        var name = document.getElementById("name").value;
-        var url = "http://how2j.cn/study/checkName.jsp?name="+name;
-
-        xmlhttp =new XMLHttpRequest();
-        xmlhttp.onreadystatechange=checkResult; //响应函数
-        xmlhttp.open("GET",url,true);   //设置访问的页面
-        xmlhttp.send(null);  //执行访问
-    }
-
-    function checkResult(){
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            document.getElementById('checkResult').innerHTML=xmlhttp.responseText;
-    }
-
-</script>
-<%--<script type="text/javascript">--%>
-    <%--function a() {--%>
-        <%--var a = document.getElementById("readername");--%>
-        <%--var b = document.getElementById("readerclass");--%>
-        <%--var c = document.getElementById("readerstatus");--%>
-        <%--var d = document.getElementById("bookremain");--%>
-        <%--a.value="aaa";--%>
-        <%--b.value="aaa";--%>
-        <%--c.value="aaa";--%>
-        <%--d.value=1;--%>
-    <%--}--%>
-    <%----%>
-    <%--$('form :input').blur(function () {--%>
-       <%--var $parent= $(this).parent();--%>
-       <%--if( $(this).is('#bookid')){--%>
-           <%--if( document.getElementById("bookremain").value <= 0){--%>
-               <%--var errorMsg = "书本剩余不足 请择日借阅";--%>
-               <%--$parent.append('<span class="formtips onError">'+errorMsg +'</span>');--%>
-           <%--}--%>
-       <%--}--%>
-    <%--});--%>
-<%--</script>--%>
 </body>
 </html> 

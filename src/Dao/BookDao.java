@@ -109,6 +109,7 @@ public class BookDao extends DBConnect {
 
     public  Book QueryBookById(String s){
         try {
+            IODao ioDao = new IODao();
             Connection conn = super.getConnection();
             String sql = "SELECT * FROM Book WHERE id=" + "'" + s + "'";
             PreparedStatement pst = null;
@@ -124,6 +125,8 @@ public class BookDao extends DBConnect {
                 book.setPrice(rs.getInt("price"));
                 book.setCategory(rs.getString("category"));
                 book.setStore(rs.getInt("store"));
+                book.setLend(ioDao.QueryBookNumById(book.getId()));
+                book.setRemain(book.getStore() - book.getLend());
                 book.setDesc(rs.getString("bookdesc"));
                 book.setLocation(rs.getString("location"));
             }

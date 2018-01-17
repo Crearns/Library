@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/borrow.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/Query.js"></script>
+<script src="${pageContext.request.contextPath}/js/Borrow.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <html>
@@ -76,33 +76,33 @@
     <div class="title">
         书本借出记录登记表
     </div>
-    <form action="IOAction?action=borrow" method="post">
+    <form action="IOAction?action=borrow" onsubmit="return errorsubmit()" method="post">
         <div>
-            <span class="infotitle">读者学号：</span><input type="text" onkeyup="check()" name="readerid" id="readerid">
+            <span class="infotitle">读者学号：</span><input type="text" onkeyup="readercheck()" name="readerid" id="readerid"><span id="readeridcheck" class="error"></span>
         </div>
         <div>
             <span class="infotitle">读者姓名：</span><input type="text" name="readername" id="readername" disabled>
-        </div>
+        </div> 
         <div>
             <span class="infotitle">读者班级：</span><input type="text" name="readername" id="readerclass" disabled>
         </div>
         <div>
-            <span class="infotitle">用户状态：</span><input type="text" name="readername" id="readerstatus" disabled>
+            <span class="infotitle">用户状态：</span><input type="text" name="readername" id="readerstatus" disabled><span id="readerstatuscheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">书本编号：</span><input type="text" name="bookid" id="bookid">
+            <span class="infotitle">书本编号：</span><input type="text" name="bookid" onkeyup="bookcheck()" id="bookid"><span id="bookidcheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">书本名称：</span><input name="bookname" id="bookname"disabled>
+            <span class="infotitle">书本名称：</span><input type="text" name="bookname" id="bookname"disabled>
         </div>
         <div>
-            <span class="infotitle">书本作者：</span><input name="bookauthor" id="bookauthor" disabled>
+            <span class="infotitle">书本作者：</span><input type="text" name="bookauthor" id="bookauthor" disabled>
         </div>
         <div>
-            <span class="infotitle">出版单位：</span><input name="bookpublisher" id="bookpublisher" disabled>
+            <span class="infotitle">出版单位：</span><input type="text" name="bookpublisher" id="bookpublisher" disabled>
         </div>
         <div>
-            <span class="infotitle">书本剩余：</span><input name="bookname" id="bookremain" disabled>
+            <span class="infotitle">书本剩余：</span><input type="text" name="bookremain" id="bookremain" disabled><span id="booknumcheck" class="error"></span>
         </div>
         <div>
             <span class="infotitle">借阅时间：</span>
@@ -112,7 +112,7 @@
             </select>
         </div>
         <div class="button">
-            <button type="submit" class="btn btn-success">提交</button>
+            <button type="submit"class="btn btn-success">提交</button>
             <button type="reset" class="btn btn-default">重填</button>
         </div>
     </form>

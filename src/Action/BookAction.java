@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class BookAction extends HttpServlet {
@@ -103,10 +104,14 @@ public class BookAction extends HttpServlet {
         Book book = bdao.QueryBookById(id);
         HttpSession session = request.getSession();
         session.setAttribute("resultbook", book);
+        PrintWriter out = response.getWriter();
         if(next.equals("check"))
             request.getRequestDispatcher("/detail.jsp").forward(request, response);
         else if(next.equals("edit"))
             request.getRequestDispatcher("/edit.jsp").forward(request, response);
+        else if(next.equals("borrowcheck")){
+            out.write(book.getName() + "||" + book.getAuthor() + "||" + book.getPublisher() + "||" + book.getRemain());
+        }
     }
 
     private void DeleteById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

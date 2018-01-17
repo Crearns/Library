@@ -66,7 +66,7 @@ public class IODao extends DBConnect{
         Connection conn = null;
         try {
             conn = super.getConnection();
-            String sql = "SELECT * FROM iolog WHERE bookid=? AND complete=?";
+            String sql = "SELECT * FROM iolog WHERE bookid=? AND complete=? ORDER BY borrowtime  ";
             PreparedStatement pst = null;
             ResultSet rs = null;
             pst = conn.prepareStatement(sql);

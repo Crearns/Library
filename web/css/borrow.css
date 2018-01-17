@@ -1,21 +1,16 @@
 .borrowinfo{
 	position:absolute;
-	width:500px;
+	width:750px;
 	margin-top:50px;
 	margin-bottom:0px;
 	margin-right:0px;
-	margin-left:705px;
+	margin-left:640px;
 }
 
 .title{
-	text-align:center;
+	margin-left:180px;
 	font-size:30px;
 	font-family:"宋体";
-}
-
-input{
-	width:350px;
-	margin-right:5px;
 }
 
 .infotitle{
@@ -23,11 +18,20 @@ input{
 	font-size:25px;
 }
 
-.button{
-	margin-top:50px;
-	text-align:center;
+.error{
+	color:red;
 }
 
 button{
 	width:110px;
+}
+
+.button{
+	margin-left:200px;
+	margin-top:80px;
+}
+
+input{
+	width:450px;
+	margin-right:5px;
 }

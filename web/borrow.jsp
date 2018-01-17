@@ -74,22 +74,31 @@
     </div>
     <form action="IOAction?action=borrow" method="post">
         <div>
-            <span class="infotitle">读者学号：</span><input type="text" name="readerid">
+            <span class="infotitle">读者学号：</span><input type="text" name="readerid" onkeyup="a()">
         </div>
         <div>
-            <span class="infotitle">读者姓名：</span><input type="text" name="readername" disabled>
+            <span class="infotitle">读者姓名：</span><input type="text" name="readername" id="readername" disabled>
         </div>
         <div>
-            <span class="infotitle">书本编号：</span><input type="text" name="bookid">
+            <span class="infotitle">读者班级：</span><input type="text" name="readername" id="readerclass" disabled>
         </div>
         <div>
-            <span class="infotitle">书本名称：</span><input name="bookname" disabled>
+            <span class="infotitle">用户状态：</span><input type="text" name="readername" id="readerstatus" disabled>
         </div>
         <div>
-            <span class="infotitle">书本作者：</span><input name="bookauthor" disabled>
+            <span class="infotitle">书本编号：</span><input type="text" name="bookid" id="bookid">
         </div>
         <div>
-            <span class="infotitle">出版单位：</span><input name="bookpublisher" disabled>
+            <span class="infotitle">书本名称：</span><input name="bookname" id="bookname"disabled>
+        </div>
+        <div>
+            <span class="infotitle">书本作者：</span><input name="bookauthor" id="bookauthor" disabled>
+        </div>
+        <div>
+            <span class="infotitle">出版单位：</span><input name="bookpublisher" id="bookpublisher" disabled>
+        </div>
+        <div>
+            <span class="infotitle">书本剩余：</span><input name="bookname" id="bookremain" disabled>
         </div>
         <div>
             <span class="infotitle">借阅时间：</span>
@@ -104,5 +113,27 @@
         </div>
     </form>
 </div>
+<%--<script type="text/javascript">--%>
+    <%--function a() {--%>
+        <%--var a = document.getElementById("readername");--%>
+        <%--var b = document.getElementById("readerclass");--%>
+        <%--var c = document.getElementById("readerstatus");--%>
+        <%--var d = document.getElementById("bookremain");--%>
+        <%--a.value="aaa";--%>
+        <%--b.value="aaa";--%>
+        <%--c.value="aaa";--%>
+        <%--d.value=1;--%>
+    <%--}--%>
+    <%----%>
+    <%--$('form :input').blur(function () {--%>
+       <%--var $parent= $(this).parent();--%>
+       <%--if( $(this).is('#bookid')){--%>
+           <%--if( document.getElementById("bookremain").value <= 0){--%>
+               <%--var errorMsg = "书本剩余不足 请择日借阅";--%>
+               <%--$parent.append('<span class="formtips onError">'+errorMsg +'</span>');--%>
+           <%--}--%>
+       <%--}--%>
+    <%--});--%>
+<%--</script>--%>
 </body>
-</html>
+</html> 

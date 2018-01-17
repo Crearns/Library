@@ -61,4 +61,24 @@ public class IODao extends DBConnect{
         return null;
     }
     
+    public int QueryBookNumById(String id){
+        int num = 0;
+        Connection conn = null;
+        try {
+            conn = super.getConnection();
+            String sql = "SELECT * FROM iolog WHERE bookid=? AND complete=?";
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, id);
+            pst.setInt(2, 0);
+            rs = pst.executeQuery();
+            rs.last();
+            num += rs.getRow();
+            return num;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  num;
+    }
 }

@@ -8,9 +8,10 @@ public class Book {
     private int price;
     private String category;
     private  int store;
+    private  int lend;
+    private  int remain;
     private String location;
     private String desc;
-
     public Book() {
     }
 
@@ -84,5 +85,21 @@ public class Book {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+    
+    public int getLend() {
+        return lend;
+    }
+
+    public void setLend(int lend) {
+        this.lend = lend;
+    }
+
+    public int getRemain() {
+        return remain;
+    }
+
+    public void setRemain(int remain) {
+        this.remain = remain;
     }
 }

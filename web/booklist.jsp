@@ -99,7 +99,9 @@
         <th>出版社</th>
         <th>价格</th>
         <th>类目</th>
-        <th>库存</th>
+        <th>库存总量</th>
+        <th>借出数量</th>
+        <th>剩余数量</th>
         <th>所在位置(柜号)</th>
         <th>操作</th>
     </tr>
@@ -120,6 +122,8 @@
         <td><%=b.getPrice()%></td>
         <td><%=b.getCategory()%></td>
         <td><%=b.getStore()%></td>
+        <td><%=b.getLend()%></td>
+        <td><%=b.getRemain()%></td>
         <td><%=b.getLocation()%></td>
         <td><a href="BookAction?action=querybookbyid&id=<%=b.getId()%>&next=edit">编辑或删除</a></td>
     </tr>

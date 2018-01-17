@@ -31,7 +31,7 @@ public class IOAction extends HttpServlet {
 
     protected void borrow(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         IODao ioDao = new IODao();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 hh时mm分ss秒");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
         Date date = new Date();
         String time = sdf.format(date);
         String readerid = request.getParameter("readerid");
@@ -48,5 +48,6 @@ public class IOAction extends HttpServlet {
         session.setAttribute("loglist", loglist);
         request.getRequestDispatcher("/IOLog.jsp").forward(request, response);
     }
+    
     
 }

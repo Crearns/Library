@@ -17,6 +17,14 @@
         <servlet-name>IOAction</servlet-name>
         <servlet-class>Action.IOAction</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReadAction</servlet-name>
+        <servlet-class>Action.ReadAction</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReadAction</servlet-name>
+        <url-pattern>/ReadAction</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginAction</servlet-name>
         <url-pattern>/LoginAction</url-pattern>

@@ -113,6 +113,24 @@
         </div>
     </form>
 </div>
+<script>
+    var xmlhttp;
+    function check(){
+        var name = document.getElementById("name").value;
+        var url = "http://how2j.cn/study/checkName.jsp?name="+name;
+
+        xmlhttp =new XMLHttpRequest();
+        xmlhttp.onreadystatechange=checkResult; //响应函数
+        xmlhttp.open("GET",url,true);   //设置访问的页面
+        xmlhttp.send(null);  //执行访问
+    }
+
+    function checkResult(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            document.getElementById('checkResult').innerHTML=xmlhttp.responseText;
+    }
+
+</script>
 <%--<script type="text/javascript">--%>
     <%--function a() {--%>
         <%--var a = document.getElementById("readername");--%>

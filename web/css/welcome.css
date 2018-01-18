@@ -36,14 +36,23 @@
 	color:white;
 }
 
+#rightsize{
+	align:right;
+	color:white;
+	
+}
+
 #usernameinput{
 	width:340px; 
 }
+
 #passwordinput{
 	width:340px; 
 }
+
 #labellogin{
 	text-align:center;
 	color:white;
 	font-size:20px;
 }
+

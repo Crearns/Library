@@ -37,7 +37,7 @@ public class LoginAction extends HttpServlet {
         HttpSession session = request.getSession();
         if(udao.login(user)){
             session.setAttribute("adminname", user.getName());
-            request.getRequestDispatcher("/main.jsp").forward(request, response);
+            response.sendRedirect("/Library/main.jsp");
         }
         else{
             

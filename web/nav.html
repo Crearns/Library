@@ -28,7 +28,7 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="borrow.jsp">借书</a>
-                    <a class="dropdown-item" href="#">还书</a>
+                    <a class="dropdown-item" href="return.jsp">还书</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -37,14 +37,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">用户管理</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">当前管理员信息</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">系统查询</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">图书预约</a>
+            <li class="nav-item dropdown" align="right">
+                <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                    管理员
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="LoginAction?action=logout">注销</a>
+                </div>
             </li>
         </ul>
 

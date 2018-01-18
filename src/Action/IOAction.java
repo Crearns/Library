@@ -23,6 +23,9 @@ public class IOAction extends HttpServlet {
         else if(action.equals("getlog")){
             this.getlog(request, response);
         }
+        else if(action.equals("return")){
+            this.ReturnBook(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,6 +51,19 @@ public class IOAction extends HttpServlet {
         session.setAttribute("loglist", loglist);
         request.getRequestDispatcher("/IOLog.jsp").forward(request, response);
     }
+
+    protected void ReturnBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        IODao ioDao = new IODao();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+        Date date = new Date();
+        String Returntime = sdf.format(date);
+        String bookid = request.getParameter("bookid");
+        String readerId = request.getParameter("ReaderId");
+        String borrowtime = request.getParameter("borrowtime");
+        ioDao.ReturnBook(bookid, readerId, borrowtime, Returntime);
+        this.getlog(request,response);
+    }
+    
     
     
 }

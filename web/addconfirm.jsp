@@ -6,7 +6,7 @@
   Time: 15:43
   To change this template use File | Settings | File Templates.
 --%>
-<<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
@@ -26,7 +26,9 @@
         response.sendRedirect("/Library/index.jsp");
     }
 %>
-
+<%
+    ArrayList<Book> addbooklist = (ArrayList<Book>)session.getAttribute("addbooklist");
+%>
 <table class="table">
     <thead>
     <tr>

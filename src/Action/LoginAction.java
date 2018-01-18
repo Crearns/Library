@@ -19,6 +19,9 @@ public class LoginAction extends HttpServlet {
         if (action.equals("login")) {
             this.login(request, response);
         }
+        else if(action.equals("logout")){
+            this.logout(request, response);
+        }
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -39,6 +42,12 @@ public class LoginAction extends HttpServlet {
         else{
             
         }
+    }
+
+    private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        HttpSession session = request.getSession();
+        session.setMaxInactiveInterval(0);
+        response.sendRedirect("/Library/index.jsp");
     }
 
 }

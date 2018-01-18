@@ -101,6 +101,7 @@ public class IODao extends DBConnect{
                 Log log = new Log();
                 log.setReaderid(rs.getString("readerid"));
                 log.setBookid(rs.getString("bookid"));
+                log.setBorrowtime(rs.getString("borrowtime"));
                 service = (rs.getInt("service") == -1) ? "借出" : "归还";
                 log.setService(service);
                 complete = (rs.getInt("complete") == 0) ? "未归还" : "已归还";
@@ -113,5 +114,32 @@ public class IODao extends DBConnect{
             e.printStackTrace();
         }
         return  null;
+    }
+    
+    public void ReturnBook(String bookid, String readerid, String borrowtime, String returntime){
+        int i = 0;
+        try {
+            Connection conn = super.getConnection();
+            PreparedStatement pst = null;
+            String sql = "UPDATE iolog SET complete=1 WHERE bookid=? AND readerid=? AND service=? AND borrowtime=?";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, bookid);
+            pst.setString(2, readerid);
+            pst.setInt(3, -1);
+            pst.setString(4, borrowtime);
+            i = pst.executeUpdate();
+            sql = "INSERT INTO iolog (bookid, readerid, service, borrowtime,complete)VALUES(?, ?, ?, ?, ?)";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, bookid);
+            pst.setString(2, readerid);
+            pst.setInt(3, 1);
+            pst.setString(4, returntime);
+            pst.setInt(5, 1);
+            i = pst.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

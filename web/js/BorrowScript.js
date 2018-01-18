@@ -39,27 +39,34 @@
         var readername = document.getElementById("readername");
         var readerclass = document.getElementById("readerclass");
         var readerstatus = document.getElementById("readerstatus");
+		var readerborrow = document.getElementById("readerborrow");
         if (xmlHttp.readyState==4 && xmlHttp.status==200){
             var data= xmlHttp.responseText;
             var parameters=data.split("||");
             var getreadername = parameters[0];
             var getreaderclass = parameters[1];
             var getreaderstatus = parameters[2];
+			var getreaderborrow = parameters[3];
             if(getreadername == "null"){
                 readername.value = "未知";
                 readerclass.value = "未知";
                 readerstatus.value = "未知";
+				readerborrow.value = "未知";
 				document.getElementById("readeridcheck").innerHTML = "*请输入正确学号";
             }
 			else{
                 readername.value = getreadername;
                 readerclass.value = getreaderclass;
                 readerstatus.value = getreaderstatus;
+				readerborrow.value = getreaderborrow;
 				document.getElementById("readeridcheck").innerHTML = "";
 				document.getElementById("readerstatuscheck").innerHTML = "";
             }
 			if(getreaderstatus == "异常" && getreadername != "null"){
 				document.getElementById("readerstatuscheck").innerHTML = "*该用户异常无法借阅";
+			}
+			else if(getreaderborrow == "5"){
+				document.getElementById("readerborrowcheck").innerHTML = "*该用户借阅过多";
 			}
 			else{
 				document.getElementById("readerstatuscheck").innerHTML = "";
@@ -121,11 +128,15 @@
 		var readerstatuscheck =  document.getElementById("readerstatuscheck").innerHTML;
 		var bookidcheck =  document.getElementById("bookidcheck").innerHTML;
 		var booknumcheck =  document.getElementById("booknumcheck").innerHTML;
-		if (readeridcheck.length > 0 || readerstatuscheck.length > 0 || bookidcheck.length > 0 || booknumcheck.length > 0)
-			return false;
-		else if (readerid == "" || bookid == ""){
+		var readerborrowcheck =  document.getElementById("readerborrowcheck").innerHTML;
+		if (readerid == ""){
 			document.getElementById("readeridcheck").innerHTML = "*学号不能为空";
+			return false;
+		}
+		else if(bookid == ""){
 			document.getElementById("bookidcheck").innerHTML = "*编号不能为空";
 			return false;
 		}
+		else if (readeridcheck.length > 0 || readerstatuscheck.length > 0 || bookidcheck.length > 0 || booknumcheck.length > 0 || readerborrowcheck.length > 0)
+			return false;
 	}

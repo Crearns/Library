@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 public class ReaderDao extends DBConnect{
     public Reader QueryReaderById(String id){
         Reader reader = new Reader();
+        IODao ioDao = new IODao();
         Connection conn = null;
         try {
             conn = super.getConnection();
@@ -24,6 +25,7 @@ public class ReaderDao extends DBConnect{
                 reader.setStatus(rs.getInt("status"));
                 reader.setGrade(rs.getInt("grade"));
                 reader.setClassnum(rs.getInt("classnum"));
+                reader.setBorrow(ioDao.QueryBorrowNumByReaderid(id).size());
             }
             return reader;
         } catch (Exception e) {

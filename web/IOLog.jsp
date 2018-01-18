@@ -80,7 +80,7 @@
         ArrayList<Log> loglist = (ArrayList<Log>)session.getAttribute("loglist");
         if(loglist!=null && loglist.size() > 0)
         {
-            for(int i = 0; i < loglist.size(); i++)
+            for(int i = loglist.size() - 1; i >= 0 ; i--)
             {
                 Log log = loglist.get(i);
     %>

@@ -66,7 +66,7 @@ public class IODao extends DBConnect{
         Connection conn = null;
         try {
             conn = super.getConnection();
-            String sql = "SELECT * FROM iolog WHERE bookid=? AND complete=? ORDER BY borrowtime  ";
+            String sql = "SELECT * FROM iolog WHERE bookid=? AND complete=? ORDER BY borrowtime";
             PreparedStatement pst = null;
             ResultSet rs = null;
             pst = conn.prepareStatement(sql);
@@ -80,5 +80,38 @@ public class IODao extends DBConnect{
             e.printStackTrace();
         }
         return  num;
+    }
+    
+    public ArrayList<Log> QueryBorrowNumByReaderid(String id){
+        int num = 0;
+        Connection conn = null;
+        ArrayList<Log> loglist = new ArrayList<>();
+        String service = null;
+        String complete = null;
+        try {
+            conn = super.getConnection();
+            String sql = "SELECT * FROM iolog WHERE readerid=? AND complete=?";
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, id);
+            pst.setInt(2, 0);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                Log log = new Log();
+                log.setReaderid(rs.getString("readerid"));
+                log.setBookid(rs.getString("bookid"));
+                service = (rs.getInt("service") == -1) ? "借出" : "归还";
+                log.setService(service);
+                complete = (rs.getInt("complete") == 0) ? "未归还" : "已归还";
+                log.setComplete(complete);
+                log.setBorrowday(rs.getInt("borrowday"));
+                loglist.add(log);
+            }
+            return loglist;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return  null;
     }
 }

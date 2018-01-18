@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/borrow.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/Borrow.js"></script>
+<script src="${pageContext.request.contextPath}/js/BorrowScript.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <html>
@@ -90,6 +90,9 @@
             <span class="infotitle">用户状态：</span><input type="text" name="readername" id="readerstatus" disabled><span id="readerstatuscheck" class="error"></span>
         </div>
         <div>
+            <span class="infotitle">用户已借：</span><input type="text" name="readerborrow" id="readerborrow" disabled><span id="readerborrowcheck" class="error"></span>
+        </div>
+        <div>
             <span class="infotitle">书本编号：</span><input type="text" name="bookid" onkeyup="bookcheck()" id="bookid"><span id="bookidcheck" class="error"></span>
         </div>
         <div>
@@ -112,7 +115,7 @@
             </select>
         </div>
         <div class="button">
-            <button type="submit"class="btn btn-success">提交</button>
+            <button type="submit" class="btn btn-success">提交</button>
             <button type="reset" class="btn btn-default">重填</button>
         </div>
     </form>

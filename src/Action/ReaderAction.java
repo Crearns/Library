@@ -29,8 +29,8 @@ public class ReaderAction extends HttpServlet {
         String readerid = request.getParameter("readerid");
         ReaderDao readerDao = new ReaderDao();
         Reader reader = readerDao.QueryReaderById(readerid);
-        String stauts = (reader.getStatus() == 1) ? "正常" : "异常";
-        String callback = reader.getName() + "||" + reader.getGrade() + "年级" + reader.getClassnum() + "班||" + stauts;
+        String stauts = (reader.getStatus() == 1) ? "正常" : "黑名单";
+        String callback = reader.getName() + "||" + reader.getGrade() + "年级" + reader.getClassnum() + "班||" + stauts + "||" + reader.getBorrow();
         PrintWriter out = response.getWriter();
         out.write(callback);
     }

@@ -20,6 +20,9 @@
 </head>
 <%
     request.setCharacterEncoding("utf-8");
+    if(session.getAttribute("adminname") == null){
+        response.sendRedirect("/Library/index.jsp");
+    }
 %>
 <body>
 <h1 align="center">欢迎进入图书馆管理系统</h1>

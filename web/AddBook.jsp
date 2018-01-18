@@ -23,7 +23,12 @@
 </body>
 <body>
 <jsp:include page="nav.html"/>
-
+<%
+    request.setCharacterEncoding("utf-8");
+    if(session.getAttribute("adminname") == null){
+        response.sendRedirect("/Library/index.jsp");
+    }
+%>
 <form action="BookAction?action=addtemp" method="post">
     <div class="bookinfo">
         <div class="title">

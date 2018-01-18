@@ -15,6 +15,9 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <%
     request.setCharacterEncoding("utf-8");
+    if(session.getAttribute("adminname") == null){
+        response.sendRedirect("/Library/index.jsp");
+    }
 %>
 <html>
 <head>

@@ -11,17 +11,6 @@
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<%
-    request.setCharacterEncoding("utf-8");
-%>
-<script type="text/javascript">
-    function a(){
-        $.ajax({
-            url:"BookAction?action=gettemp",//servlet文件的名称  
-            type:"GET",
-        });
-    }
-</script>
 <html>
 <head>
     <title>书本添加确认</title>
@@ -32,7 +21,10 @@
 <body>
 <jsp:include page="nav.html"/>
 <%
-    ArrayList<Book> addbooklist = (ArrayList<Book>)session.getAttribute("addbooklist");
+    request.setCharacterEncoding("utf-8");
+    if(session.getAttribute("adminname") == null){
+        response.sendRedirect("/Library/index.jsp");
+    }
 %>
 
 <table class="table">

@@ -19,10 +19,6 @@ public class LoginAction extends HttpServlet {
         if (action.equals("login")) {
             this.login(request, response);
         }
-        else if(action.equals("getadmininfo")){
-            this.getadmininfo(request, response);
-        }
-
     }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -37,17 +33,12 @@ public class LoginAction extends HttpServlet {
         user.setPassword(password);
         HttpSession session = request.getSession();
         if(udao.login(user)){
-            session.setAttribute("name", user.getName());
+            session.setAttribute("adminname", user.getName());
             request.getRequestDispatcher("/main.jsp").forward(request, response);
         }
         else{
-
+            
         }
     }
-    private void getadmininfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        String name = (String)session.getAttribute("name");
-        User admincurrent = udao.queryadminbyname(name);
-        session.setAttribute("currentadmin", admincurrent);
-    }
+
 }

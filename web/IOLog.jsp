@@ -16,6 +16,12 @@
     <title>图书借进归还日志</title>
 </head>
 <body>
+<%
+    request.setCharacterEncoding("utf-8");
+    if(session.getAttribute("adminname") == null){
+        response.sendRedirect("/Library/index.jsp");
+    }
+%>
 <h1 align="center">欢迎进入图书馆管理系统</h1>
 <jsp:include page="nav.html"/>
 <table class="table">

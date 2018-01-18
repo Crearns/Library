@@ -21,6 +21,12 @@
 <h1 align="center">欢迎进入图书馆管理系统</h1>
 <jsp:include page="nav.html"/>
 <%
+    request.setCharacterEncoding("utf-8");
+    if(session.getAttribute("adminname") == null){
+        response.sendRedirect("/Library/index.jsp");
+    }
+%>
+<%
     Book book = (Book)session.getAttribute("resultbook");
 %>
 <div class="detail">

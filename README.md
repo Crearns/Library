@@ -12,13 +12,17 @@
 * 版本控制:Git
 * CSS框架:BootStrap
 * JavaScript框架:jQuery
+* 项目较小未用maven
 * 无涉及Spring Spring-MVC Mybatis
 
 ## 主要功能
 
 * 用户登录注销
 * 借书、还书操作
-* 书本的添加
+* 书本的添加、编辑
+* 查看图书总表
+* 图书详情
+* 图书借出\归还日志
 
 后期功能会继续添加 To Be Continued
 

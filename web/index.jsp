@@ -39,7 +39,7 @@
         <div class="form-group">
             <input type="password" class="form-control" id="passwordinput" name="password" placeholder="密码"/>
         </div>
-        <button class="btn btn-primary" onclick="logincheck()">登录</button>
+        <button id="loginbutton" class="btn btn-primary" onclick="logincheck()">登录</button>
         <span class="errorsubmit" id="checkinfo"></span>
     </div>
 </div>

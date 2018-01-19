@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class LoginAction extends HttpServlet {
     UserDao udao = new UserDao();
@@ -29,24 +30,26 @@ public class LoginAction extends HttpServlet {
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = null;
         String password = null;
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
         username = request.getParameter("username");
         password = request.getParameter("password");
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        HttpSession session = request.getSession();
-        if(udao.login(user)){
+        String result = udao.login(user);
+        if(result.equals("true")){
             session.setAttribute("adminname", user.getName());
-            response.sendRedirect("/Library/main.jsp");
+            request.getRequestDispatcher("/main.jsp").forward(request, response);
         }
         else{
-            
+            out.write(result);
         }
     }
 
     private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
-        session.setMaxInactiveInterval(0);
+        session.setMaxInactiveInterval(1);
         response.sendRedirect("/Library/index.jsp");
     }
 

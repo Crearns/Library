@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class UserDao extends DBConnect{
 
 
-    public boolean login(User u){
+    public String login(User u){
         try {
             Connection conn = super.getConnection();
             String sql = "SELECT password,name FROM User WHERE user=?";
@@ -23,14 +23,19 @@ public class UserDao extends DBConnect{
             if (rs.next()) {
                 if (u.getPassword().equals(rs.getString("password"))){
                     u.setName(rs.getString("name"));
-                    return true;
+                    return "true";
                 }
+                else{
+                    return "false";
+                }
+            }
+            else{
+                return "false";
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
-
+        return null;
     }
     
     public User queryadminbyname(String s){

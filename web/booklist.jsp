@@ -26,7 +26,7 @@
 <head>
     <title>图书管理</title>
 </head>
-<body onload="a()">
+<body>
 <h1 align="center">欢迎进入图书馆管理系统</h1>
 <jsp:include page="nav.html"/>
 <table class="table">

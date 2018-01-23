@@ -20,8 +20,6 @@
 </head>
 <body>
 <h1 align="center">欢迎进入图书馆管理系统</h1>
-</body>
-<body>
 <jsp:include page="nav.html"/>
 <%
     request.setCharacterEncoding("utf-8");
@@ -67,35 +65,6 @@
         </div>
     </div>
 </form>
-<script type="text/javascript">
-    $('form :input').blur(function () {
-        var $parent = $(this).parent();
-        $parent.find(".formtips").remove();
-        if( $(this).is('#bookid')){
-            if(this.value == "" || this.value.length < 6){
-                var errorMsg = "请输入至少6位编号.";
-                $parent.append('<span class="formtips onError">'+errorMsg+'</span>')
-            }
-            else{
-                var okMsg = '输入正确.';
-                $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>')
-            }
-        }
-
-    });
-    
-    $("form :input.required").each(function () {
-       var $required = $("<strong class='high'>*</strong>");
-       $(this).parent().append($required);
-    });
-    
-    $('#send').click(function () {
-       $("form .required:input").trigger('blur');
-       var numError = $(form .onError).length;
-       if(numError)
-           return false;
-    });
-</script>
 </body>
 </html>
     

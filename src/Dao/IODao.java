@@ -97,8 +97,9 @@ public class IODao extends DBConnect{
             pst.setString(1, id);
             pst.setInt(2, 0);
             rs = pst.executeQuery();
+            Log log = null;
             while(rs.next()){
-                Log log = new Log();
+                log = new Log();
                 log.setReaderid(rs.getString("readerid"));
                 log.setBookid(rs.getString("bookid"));
                 log.setBorrowtime(rs.getString("borrowtime"));

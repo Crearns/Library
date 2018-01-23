@@ -82,7 +82,7 @@ public class BookAction extends HttpServlet {
         else
             this.gettemp(request,response);
     }
-
+    
     private void gettemp(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         BookDao bdao = new BookDao();
         ArrayList<Book> addbooklist = bdao.getadd();

@@ -8,6 +8,7 @@ public class Reader {
     private int status;
     private String mail;
     private int grade;
+    private String tel;
     private int classnum;
     private int borrow;
 
@@ -56,6 +57,14 @@ public class Reader {
 
     public String getMail() {
         return mail;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public void setMail(String mail) {

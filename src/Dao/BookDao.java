@@ -72,8 +72,9 @@ public class BookDao extends DBConnect {
             ResultSet rs = null;
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
+            Book addbook = null;
             while (rs.next()) {
-                Book addbook = new Book();
+                addbook = new Book();
                 addbook.setPrice(rs.getInt("price"));
                 addbook.setCategory(rs.getString("category"));
                 addbook.setStore(rs.getInt("store"));

@@ -27,6 +27,9 @@ public class ReaderAction extends HttpServlet {
         else if (action.equals("GetBorrowListById")){
             this.GetBorrowListById(request, response);
         }
+        else if (action.equals("GetAllReader")){
+            this.GetAllReader(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,5 +53,13 @@ public class ReaderAction extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("loglist", loglist);
         request.getRequestDispatcher("/borrowlist.jsp").forward(request,response);
+    }
+
+    protected void GetAllReader(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        ReaderDao readerDao = new ReaderDao();
+        ArrayList<Reader> readerlist = readerDao.GetAllReader();
+        HttpSession session = request.getSession();
+        session.setAttribute("readerlist", readerlist);
+        request.getRequestDispatcher("/ReaderList.jsp").forward(request, response);
     }
 }

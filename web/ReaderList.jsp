@@ -44,6 +44,8 @@
     </thead>
     <tbody>
     <%
+        String status = null;
+        String edit = null;
         if(readerlist!=null && readerlist.size() > 0)
         {
             for(int i = 0; i < readerlist.size(); i++)
@@ -54,11 +56,15 @@
         <td><%=reader.getUsername()%></td>
         <td><%=reader.getName()%></td>
         <td><%=reader.getSex()%></td>
-        <td><%=reader.getStatus()%></td>
+        <%
+            status = (reader.getStatus() == 1)?"正常":"黑名单";
+            edit = (reader.getStatus() == 1)?"设置成黑名单":"设置为正常";
+        %>
+        <td><%=status%></td>
         <td><%=reader.getMail()%></td>
         <td><%=reader.getTel()%></td>
         <td><%=reader.getGrade()%>年级<%=reader.getClassnum()%>班</td>
-        <td><a href="#">编辑信息</a></td>
+        <td><a href="ReaderAction?action=SetBlackList&id=<%=reader.getUsername()%>&edit=<%=edit%>"><%=edit%></a></td>
     </tr>
     <%
             }

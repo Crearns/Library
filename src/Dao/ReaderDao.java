@@ -64,4 +64,24 @@ public class ReaderDao extends DBConnect{
         }
         return null;
     }
+    
+    public void SetBlackList(String username, boolean isblack){
+        int i = 0;
+        Connection conn = null;
+        String sql = null;
+        try {
+            conn = super.getConnection();
+            PreparedStatement pst = null;
+            if(isblack == true)
+                sql = "UPDATE reader SET status=1 WHERE username=?";
+            else
+                sql = "UPDATE reader SET status=-1 WHERE username=?";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, username);
+            i = pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

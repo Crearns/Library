@@ -30,6 +30,9 @@ public class ReaderAction extends HttpServlet {
         else if (action.equals("GetAllReader")){
             this.GetAllReader(request, response);
         }
+        else if(action.equals("SetBlackList")){
+            this.SetBlackList(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +43,7 @@ public class ReaderAction extends HttpServlet {
         String readerid = request.getParameter("readerid");
         ReaderDao readerDao = new ReaderDao();
         Reader reader = readerDao.QueryReaderById(readerid);
-        String stauts = (reader.getStatus() == 1) ? "正常" : "黑名单";
+        String stauts = (reader.getStatus() == 1) ? "正常" : "异常";
         String callback = reader.getName() + "||" + reader.getGrade() + "年级" + reader.getClassnum() + "班||" + stauts + "||" + reader.getBorrow();
         PrintWriter out = response.getWriter();
         out.write(callback);
@@ -61,5 +64,18 @@ public class ReaderAction extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("readerlist", readerlist);
         request.getRequestDispatcher("/ReaderList.jsp").forward(request, response);
+    }
+
+    protected void SetBlackList (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        String username = request.getParameter("id");
+        String edit = request.getParameter("edit");
+        ReaderDao readerDao = new ReaderDao();
+        if(edit.equals("设置为正常")){
+            readerDao.SetBlackList(username, true);
+        }
+        else{
+            readerDao.SetBlackList(username, false);
+        }
+        response.sendRedirect("/Library/ReaderList.jsp");
     }
 }

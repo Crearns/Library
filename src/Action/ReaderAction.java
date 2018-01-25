@@ -76,6 +76,6 @@ public class ReaderAction extends HttpServlet {
         else{
             readerDao.SetBlackList(username, false);
         }
-        response.sendRedirect("/Library/ReaderList.jsp");
+        this.GetAllReader(request, response);
     }
 }

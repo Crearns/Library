@@ -31,7 +31,7 @@
         createXMLHttpRequest();   //调用创建XMLHttpRequest对象的方法
         xmlHttp.onreadystatechange=bookcheckResult;   //设置回调函数
         var url="BookAction?action=querybookbyid&next=existcheck&id=" + bookid;
-		document.getElementById("bookidcheck").innerHTML = " ";
+		document.getElementById("bookidcheck").innerHTML = "";
         xmlHttp.open("POST",url,true);      //向服务器端发送请求
         xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=utf8");
         xmlHttp.send(null);

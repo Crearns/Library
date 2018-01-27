@@ -107,6 +107,20 @@ public class BookDao extends DBConnect {
             e.printStackTrace();
         }
     }
+    public void truncatetable(){
+        int i = 0;
+        Connection conn = null;
+        try {
+            conn = super.getConnection();        
+            PreparedStatement pst = null;
+            String sql = "truncate table tempadd;";
+            pst = conn.prepareStatement(sql);
+            i = pst.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public  Book QueryBookById(String s){
         try {

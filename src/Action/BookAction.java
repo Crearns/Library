@@ -44,6 +44,9 @@ public class BookAction extends HttpServlet {
         else if(action.equals("EditDone")){
             this.EditDone(request, response);
         }
+        else if(action.equals("truncatetable")){
+           this.truncatetable(request, response); 
+        }
     }
     private void getAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         BookDao bdao = new BookDao();
@@ -149,5 +152,11 @@ public class BookAction extends HttpServlet {
             bdao.addtemp(book);
         bdao.EditDone(book);
         request.getRequestDispatcher("BookAction?action=querybookbyid&id=<%=b.getId()%>&next=check").forward(request, response);
+    }
+
+    private void truncatetable(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        BookDao bookDao = new BookDao();
+        bookDao.truncatetable();
+        this.gettemp(request, response);
     }
 }

@@ -8,6 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addbook.css">
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -64,8 +65,9 @@
     %>
     </tbody>
 </table>
-<div>
-    <button onclick="location.href='BookAction?action=confirm'">确认添加</button>
+<div class="button">
+    <button onclick="location.href='BookAction?action=confirm'" class="btn btn-success">确认添加</button>
+    <button onclick="location.href='BookAction?action=truncatetable'" class="btn btn-danger">清空列表</button>
 </div>
 </body>
 </html>

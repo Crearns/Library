@@ -48,7 +48,7 @@
         String edit = null;
         if(readerlist!=null && readerlist.size() > 0)
         {
-            for(int i = 0; i < readerlist.size(); i++)
+            for (int i = 0; i < readerlist.size(); i++)
             {
                 Reader reader = readerlist.get(i);
     %>

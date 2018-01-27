@@ -15,8 +15,8 @@
 <head>
     <title>书本添加确认</title>
 </head>
-<body onload="a()">
-<h1>欢迎进入图书馆管理系统</h1>
+<body>
+<h1 align="center">欢迎进入图书馆管理系统</h1>
 </body>
 <body>
 <jsp:include page="nav.html"/>

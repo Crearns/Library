@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page pageEncoding="utf-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addpage.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/addbook.css">
+<script src="${pageContext.request.contextPath}/js/AddScript.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -31,7 +32,7 @@
             <span>请输入书本信息</span>
         </div>
         <div>
-            <span class="infotitle">书本编号：</span><input name="bookid" class="required" id="bookid" >
+            <span class="infotitle">书本编号：</span><input name="bookid" class="required" id="bookid" onkeyup="bookcheck()" ><span id="bookidcheck" class="error"></span>
         </div>
         <div>
             <span class="infotitle">书本名称：</span><input class="required" name="bookname">

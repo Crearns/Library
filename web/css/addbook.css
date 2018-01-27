@@ -18,6 +18,10 @@ input{
 	margin-right:5px;
 }
 
+.error{
+	color:red;
+}
+
 .button{
 	text-align:center;
 }
@@ -32,3 +36,5 @@ textarea{
 	font-family:"仿宋";
 	font-size:25px;
 }
+
+

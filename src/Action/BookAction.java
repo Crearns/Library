@@ -112,6 +112,9 @@ public class BookAction extends HttpServlet {
         else if(next.equals("borrowcheck")){
             out.write(book.getName() + "||" + book.getAuthor() + "||" + book.getPublisher() + "||" + book.getRemain());
         }
+        else if(next.equals("existcheck")){
+            out.write(book.getName());
+        }
     }
 
     private void DeleteById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

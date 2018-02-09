@@ -35,28 +35,28 @@
             <span class="infotitle">书本编号：</span><input name="bookid" class="required" id="bookid" onkeyup="bookcheck()"  ><span id="bookidcheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">书本名称：</span><input class="required" name="bookname">><span id="booknamecheck" class="error"></span>
+            <span class="infotitle">书本名称：</span><input class="required" name="bookname"><span id="booknamecheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">书本作者：</span><input class="required" name="bookauthor">><span id="bookauthorcheck" class="error"></span>
+            <span class="infotitle">书本作者：</span><input class="required" name="bookauthor"><span id="bookauthorcheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">出版单位：</span><input class="required" name="bookpublisher">><span id="bookpublishercheck" class="error"></span>
+            <span class="infotitle">出版单位：</span><input class="required" name="bookpublisher"><span id="bookpublishercheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">书本价格：</span><input class="required" name="bookprice">><span id="bookpricecheck" class="error"></span>
+            <span class="infotitle">书本价格：</span><input class="required" name="bookprice"><span id="bookpricecheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">书本类目：</span><input class="required" name="bookcategory">><span id="bookcategorycheck" class="error"></span>
+            <span class="infotitle">书本类目：</span><input class="required" name="bookcategory"><span id="bookcategorycheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">书本库存：</span><input class="required" name="bookstore" >><span id="bookstorecheck" class="error"></span>
+            <span class="infotitle">书本库存：</span><input class="required" name="bookstore" ><span id="bookstorecheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">所在位置：</span><input class="required" name="booklocation" >><span id="booklocationcheck" class="error"></span>
+            <span class="infotitle">所在位置：</span><input class="required" name="booklocation" ><span id="booklocationcheck" class="error"></span>
         </div>
         <div>
-            <span class="infotitle">书本详情：</span><textarea name="bookdesc"></textarea>><span id="bookdesccheck" class="error"></span>
+            <span class="infotitle">书本详情：</span><textarea name="bookdesc"></textarea><span id="bookdesccheck" class="error"></span>
         </div>
         <div class="button">
             <button type="submit" class="btn btn-default" name="over" value="1">完成添加</button>

@@ -17,6 +17,12 @@
     <title>管理员登录</title>
 </head>
 <body>
+<%
+    request.setCharacterEncoding("utf-8");
+    if(session.getAttribute("adminname") != null){
+        response.sendRedirect("/Library/main.jsp");
+    }
+%>
 <div class="welcome">
     <img src="${pageContext.request.contextPath}/image/welcome.jpg" width="1920px" height="945px">
 </div>

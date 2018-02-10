@@ -19,7 +19,7 @@
 <body>
 <%
     request.setCharacterEncoding("utf-8");
-    if(session.getAttribute("adminname") != null){
+    if(session.getAttribute("adminname") != null && session.getAttribute("logout") == null){
         response.sendRedirect("/Library/main.jsp");
     }
 %>

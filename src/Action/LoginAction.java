@@ -50,6 +50,7 @@ public class LoginAction extends HttpServlet {
     private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
         session.setMaxInactiveInterval(1);
+        session.setAttribute("logout", "1");
         response.sendRedirect("/Library/index.jsp");
     }
 
